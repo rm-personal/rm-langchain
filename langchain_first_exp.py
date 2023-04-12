@@ -78,25 +78,25 @@ if st.button("Tell me about it", type="primary"):
     template = """{question}\n\n"""
     prompt_template = PromptTemplate(input_variables=["question"], template=template)
     question_chain = LLMChain(llm=llm, prompt=prompt_template)
-#    # Chain 2: Generating assumptions made in the statement
-#    template = """Here is a statement:
-#        {statement}
-#        Make a bullet point list of the assumptions you made when producing the above statement.\n\n"""
-#    prompt_template = PromptTemplate(input_variables=["statement"], template=template)
-#    assumptions_chain = LLMChain(llm=llm, prompt=prompt_template)
-#    assumptions_chain_seq = SimpleSequentialChain(
-#        chains=[question_chain, assumptions_chain], verbose=True
-#    )
-#    # Chain 3: Fact checking the assumptions
-#    template = """Here is a bullet point list of assertions:
-#    {assertions}
-#    For each assertion, determine whether it is true or false. If it is false, explain why.\n\n"""
-#    prompt_template = PromptTemplate(input_variables=["assertions"], template=template)
-#    fact_checker_chain = LLMChain(llm=llm, prompt=prompt_template)
-#    fact_checker_chain_seq = SimpleSequentialChain(
-#        chains=[question_chain, assumptions_chain, fact_checker_chain], verbose=True
-#    )
-#    # Final Chain: Generating the final answer to the user's question based on the facts and assumptions
+    # Chain 2: Generating assumptions made in the statement
+    template = """Here is a statement:
+        {statement}
+        Make a bullet point list of the assumptions you made when producing the above statement.\n\n"""
+    prompt_template = PromptTemplate(input_variables=["statement"], template=template)
+    assumptions_chain = LLMChain(llm=llm, prompt=prompt_template)
+    assumptions_chain_seq = SimpleSequentialChain(
+        chains=[question_chain, assumptions_chain], verbose=True
+    )
+    # Chain 3: Fact checking the assumptions
+    template = """Here is a bullet point list of assertions:
+    {assertions}
+    For each assertion, determine whether it is true or false. If it is false, explain why.\n\n"""
+    prompt_template = PromptTemplate(input_variables=["assertions"], template=template)
+    fact_checker_chain = LLMChain(llm=llm, prompt=prompt_template)
+    fact_checker_chain_seq = SimpleSequentialChain(
+        chains=[question_chain, assumptions_chain, fact_checker_chain], verbose=True
+    )
+    # Final Chain: Generating the final answer to the user's question based on the facts and assumptions
     template = """In light of the above facts, how would you answer the question '{}'""".format(
         user_question
     )
