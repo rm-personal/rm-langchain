@@ -33,14 +33,14 @@ from langchain.prompts import PromptTemplate # import PromptTemplate
 
 
 # Set the title of the Streamlit app
-st.title("✅ What's TRUE  : Using LangChain `SimpleSequentialChain`")
+st.title(" 101 of Using LLMs for Enterprise : This Version has no Enterprise Data .. ")
 
 
 # In[12]:
 
 
 # Add a link to the Github repository that inspired this app
-st.markdown("Inspired from [fact-checker](https://github.com/jagilley/fact-checker) by Jagiley")
+st.markdown("Inspired from [fact-checker](https://github.com/jagilley/fact-checker)")
 
 
 # In[13]:
