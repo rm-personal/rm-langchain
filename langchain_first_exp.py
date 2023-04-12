@@ -45,7 +45,7 @@ st.markdown("Inspired from [fact-checker](https://github.com/jagilley/fact-check
 # In[13]:
 
 
-API = "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"
+API = OPENAI_API_KEY
 
 
 # In[14]:
