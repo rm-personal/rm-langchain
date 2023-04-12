@@ -105,7 +105,7 @@ if st.button("Tell me about it", type="primary"):
     answer_chain = LLMChain(llm=llm, prompt=prompt_template)
     overall_chain = SimpleSequentialChain(
         chains=[question_chain, assumptions_chain, fact_checker_chain, answer_chain],
-        verbose=True,
+        verbose=True
     )
 
     # Running all the chains on the user's question and displaying the final answer
