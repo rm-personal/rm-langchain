@@ -79,6 +79,9 @@ if st.button("Tell me about it", type="primary"):
     template = """{question}\n\n"""
     prompt_template = PromptTemplate(input_variables=["question"], template=template)
     question_chain = LLMChain(llm=llm, prompt=prompt_template)
+    statement_chain_seq = SimpleSequentialChain(
+        chains=[question_chain], verbose=True
+    )
     # Chain 2: Generating assumptions made in the statement
     template = """Here is a statement:
         {statement}
