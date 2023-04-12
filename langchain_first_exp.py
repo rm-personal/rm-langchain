@@ -21,7 +21,8 @@
 
 # In[7]:
 
-
+import os
+import open  
 import streamlit as st # import the Streamlit library
 from langchain.chains import LLMChain, SimpleSequentialChain # import LangChain libraries
 from langchain.llms import OpenAI # import OpenAI model
@@ -45,7 +46,7 @@ st.markdown("Inspired from [fact-checker](https://github.com/jagilley/fact-check
 # In[13]:
 
 
-API = {{secrets.OPENAI_API_KEY}}
+API = os.environ["OPENAI_API_KEY"]
 
 
 # In[14]:
